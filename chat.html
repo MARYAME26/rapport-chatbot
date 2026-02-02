@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Chatbot – Générateur de Rapport LaTeX</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+
+<!-- Responsive -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="chat-page">
+
+<!-- Zone principale du chat -->
+<div class="chat-container">
+
+<!-- Boîte des messages -->
+<div id="chatBox" class="chat-box">
+<!-- Les messages du bot et de l'utilisateur s'affichent ici via JS -->
+</div>
+
+<!-- Zone de saisie -->
+<div class="chat-input-area">
+<textarea
+id="userInput"
+placeholder="Écrivez votre réponse ici..."
+rows="2">
+</textarea>
+
+<button id="sendBtn" class="btn primary-btn">
+Envoyer
+</button>
+</div>
+
+<!-- Bouton génération PDF -->
+<div class="chat-actions">
+<button id="generateBtn" class="btn secondary-btn hidden">
+Générer le PDF
+</button>
+</div>
+
+</div>
+
+<!-- JavaScript -->
+<script src="script.js"></script>
+
+</body>
+</html>
+
+
+
+
