@@ -58,36 +58,43 @@ bot("Nom de l’école ?");
 }
 
 else if (step === 2) {
-latexContent += `{\\large ${text} \\par}\n\\vspace{1.5cm}\n`;
+latexContent += `{\\large ${text} \\par}\n\\vspace{1cm}\n`;
+step++;
+bot("Spécialité ?");
+}
+
+// ===== SPÉCIALITÉ (CENTRÉE) =====
+else if (step === 3) {
+latexContent += `{\\large\\textbf{Spécialité :} ${text} \\par}\n\\vspace{1.5cm}\n`;
 step++;
 bot("Titre du projet ?");
 }
 
-else if (step === 3) {
+else if (step === 4) {
 latexContent += `{\\Huge\\bfseries ${text} \\par}\n\\vspace{2cm}\n`;
 step++;
 bot("Projet réalisé dans le cadre de quel projet / module ?");
 }
 
-else if (step === 4) {
+else if (step === 5) {
 latexContent += `\\textbf{Projet :} ${text} \\par\\vspace{1cm}\n`;
 step++;
 bot("Nom et prénom de l’étudiant ?");
 }
 
-else if (step === 5) {
+else if (step === 6) {
 latexContent += `\\textbf{Réalisé par :} ${text} \\par\n`;
 step++;
 bot("Nom et prénom de l’encadrant ?");
 }
 
-else if (step === 6) {
+else if (step === 7) {
 latexContent += `\\textbf{Encadré par :} ${text} \\par\n\\vfill\n`;
 step++;
 bot("Année universitaire ?");
 }
 
-else if (step === 7) {
+else if (step === 8) {
 latexContent += `Année universitaire : ${text}\n\\end{titlepage}\n\\newpage\n`;
 step = 100;
 generateBtn.classList.remove("hidden");
@@ -102,7 +109,7 @@ bot(
 );
 }
 
-// ================= MENU INFINI =================
+// ================= MENU =================
 else if (step === 100) {
 if (text === "1") {
 step = 200;
@@ -162,7 +169,7 @@ bot("✅ Tableau ajouté. Choisissez une autre option.");
 else if (step === 400) {
 chapterCount++;
 latexContent +=
-`\\chapter*{\\centering\\bfseries\\underline{CHAPITRE ${chapterCount}} \\quad \\bfseries ${text}}\n` +
+`\\chapter*{\\centering\\bfseries\\underline{CHAPITRE ${chapterCount}} \\quad ${text}}\n` +
 `\\addcontentsline{toc}{chapter}{Chapitre ${chapterCount} : ${text}}\n\\newpage\n`;
 step = 100;
 bot("✅ Chapitre ajouté. Choisissez une autre option.");
@@ -204,15 +211,8 @@ URL.revokeObjectURL(url);
 
 bot(
 "🎉 <b>Félicitations !</b><br><br>" +
-"Votre fichier <b>rapport.tex</b> a été généré avec succès.<br><br>" +
-"🧾 <b>Pour obtenir le PDF :</b><br>" +
-"• Importez le fichier sur <a href='https://www.overleaf.com' target='_blank'>Overleaf</a><br>" +
-"• Ou compilez-le localement avec <b>MiKTeX</b><br><br>" +
-"📌 <b>Sur Overleaf :</b><br>" +
-"1️⃣ Créez un nouveau projet<br>" +
-"2️⃣ Importez le fichier <i>rapport.tex</i><br>" +
-"3️⃣ Cliquez sur <b>Recompile</b> pour générer le PDF<br><br>" +
-"👏 Excellent travail ! Vous avez construit un rapport académique structuré et conforme aux normes."
+"Votre fichier <b>rapport.tex</b> a été généré avec succès.<br>" +
+"👉 Compilez-le avec <b>MiKTeX</b> ou importez-le sur <b>Overleaf</b> 📘"
 );
 };
 
